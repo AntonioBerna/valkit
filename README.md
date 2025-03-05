@@ -7,14 +7,17 @@
 ## Project Purpose
 
 Lately I'm having problems with the Valgrind tool.
-In particular because the version of `glibc` of Linux Manjaro is not the same as that of [Arch Linux](https://archlinux.org/packages/core/x86_64/glibc/), namely:
+In particular because the version of `glibc` of Linux Manjaro is not the same as that of [Arch Linux](https://archlinux.org/packages/extra/x86_64/valgrind/), namely:
 
 ```
 $ pacman -Q glibc
 glibc 2.40+r66+g7d4b6bcae91f-1
 ```
 
-the Valgrind tool generates the following error:
+> [!NOTE]
+> The link above refers to `valgrind` package. See dependencies and click on `glibc` package to see the version.
+
+the `valgrind` tool generates the following error:
 
 ```
 valgrind:  Fatal error at startup: a function redirection
