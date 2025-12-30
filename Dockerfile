@@ -6,6 +6,7 @@ RUN apt-get update && \
     build-essential \
     gcc \
     g++ \
+    clang \
     make \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*

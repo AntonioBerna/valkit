@@ -82,9 +82,22 @@ The classic commands that can be used are the following:
 
 ```bash
 # memcheck
-docker run --rm -v $(pwd):/app antonioberna/valkit valgrind --tool=memcheck --leak-check=full --track-origins=yes ./a.out
+docker run --rm -v $(pwd):/app antonioberna/valkit \
+valgrind --tool=memcheck --leak-check=full --track-origins=yes ./a.out
+
+docker run --rm -v $(pwd):/app antonioberna/valkit \
+bash -c "make && valgrind --tool=memcheck --leak-check=full --track-origins=yes ./a.out"
 
 # helgrind
-docker run --rm -v $(pwd):/app antonioberna/valkit valgrind --tool=helgrind ./a.out
+docker run --rm -v $(pwd):/app antonioberna/valkit valgrind \
+--tool=helgrind ./a.out
+```
+
+## Build multi-arch Docker image
+
+The following command builds and pushes a **multi-architecture Docker image** for both **x86_64 (amd64)** and **ARM64** platforms:
+
+```bash
+docker buildx build --platform linux/amd64,linux/arm64 -t antonioberna/valkit --push .
 ```
 
